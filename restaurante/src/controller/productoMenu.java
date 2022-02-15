@@ -1,58 +1,62 @@
 package controller;
 
-public class ingrediente 
-{	
+public class productoMenu
+{
 	// ************************************************************************
 	// Atributos
 	// ************************************************************************
-
+	
 	/**
-	 * El nombre del ingrediente.
+	 * Nombre del Producto
 	 */
 	private String nombre;
-
+	
 	/**
-	 * El costo adicional del ingrediente
+	 * Precio base del producto
 	 */
-	private int costoAdicional;
-
+	private int precioBase;
+	
 	// ************************************************************************
 	// Constructores
 	// ************************************************************************
-
+	
 	/**
-	 * Se crea el ingrediente con sus atributos.
-	 * @param elNombre El nombre del ingrediente
-	 * @param elCostoAdicional Cuanto cuesta de el ingrediente
+	 * Crea el producto con sus atributos
+	 * @param elNombre El nombre del producto
+	 * @param elPrecio El precio base del producto
 	 */
-	public Ingrediente(String elNombre, int elCostoAdicional)
+	public productoMenu(String elNombre, int elPrecio)
 	{
 		this.nombre = elNombre;
-		this.costoAdicional = elCostoAdicional;
+		this.precioBase = elPrecio;
 	}
-
+	
 	// ************************************************************************
 	// Metodos para consultar los atributos
-	// **
-
+	// ************************************************************************
+	
 	/**
-	 * Consulta el nombre del ingrediente
+	 * Consulta el nombre del producto
 	 * 
 	 * @return nombre
 	 */
-
 	public String getNombre()
 	{
 		return nombre;
 	}
-
+	
 	/**
-	 * Consulta el costo adicional
-	 * 
-	 * @return costoAdicional
+	 * Consulta el precio base del producto
+	 * @return precio base
 	 */
-	public int getcostoAdicional()
+	public int getprecioBase()
 	{
-		return costoAdicional;
+		return precioBase;
 	}
+	
+	/*public String generarTextoFactura()
+	{
+		
+	/*}
+	
 }
