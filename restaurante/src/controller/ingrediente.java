@@ -25,7 +25,7 @@ public class ingrediente
 	 * @param elNombre El nombre del ingrediente
 	 * @param elCostoAdicional Cuanto cuesta de el ingrediente
 	 */
-	public Ingrediente(String elNombre, int elCostoAdicional)
+	public ingrediente(String elNombre, int elCostoAdicional)
 	{
 		this.nombre = elNombre;
 		this.costoAdicional = elCostoAdicional;

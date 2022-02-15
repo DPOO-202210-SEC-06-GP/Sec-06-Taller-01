@@ -1,5 +1,7 @@
 package controller;
 
+import java.util.List;
+
 public class combo 
 {
 	// ************************************************************************
@@ -7,12 +9,17 @@ public class combo
 	// ************************************************************************
 	
 	/**
-	 * Lista de productos que forman el combo
+	 * El precio del producto
 	 */
-	private List<Producto> productos;
+	private int precio;
 	
 	/**
-	 * Descuento que tiene el combo en comparación con commprar los productos por separado
+	 * Lista de productos que forman el combo
+	 */
+	private List<productoMenu> productos;
+	
+	/**
+	 * Descuento que tiene el combo en comparación con comprar los productos por separado
 	 */
 	private double descuento;
 	
@@ -30,12 +37,39 @@ public class combo
 	 * @param elNombre El nombre del combo
 	 * @param elDescuento El porcentaje de descuento
 	 */
-	public Combo(String elNombre, double elDescuento)
+	public combo(String elNombre, double elDescuento)
 	{
 		this.nombreCombo = elNombre;
 		this.descuento = elDescuento;
 	}
 	
-	public void agregarItemACombo(Producto itemCombo)
+	/**
+	 * Agrega un producto al combo
+	 */
+	public void agregarItemACombo(productoMenu itemCombo)
+	{
+		this.productos.add(itemCombo);
+	}
 	
+	/**
+	 * Consulta el nombre del combo
+	 * @return nombre
+	 */
+	public String getNombre()
+	{
+		return nombreCombo;
+	}
+	
+	/**
+	 * Calcula el precio del combo
+	 */
+	public int getPrecio()
+	{
+		for(productoMenu itemCombo : productos)
+		{
+			precio += itemCombo.getprecioBase();
+		}
+		
+		return precio;
+	}
 }
