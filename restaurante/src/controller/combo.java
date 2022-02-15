@@ -61,7 +61,7 @@ public class combo
 	}
 	
 	/**
-	 * Calcula el precio del combo
+	 * Calcula el precio del combo con el descuento
 	 */
 	public int getPrecio()
 	{
@@ -69,6 +69,8 @@ public class combo
 		{
 			precio += itemCombo.getprecioBase();
 		}
+		
+		precio =  (int) (precio-(precio*(descuento/100)));
 		
 		return precio;
 	}
