@@ -54,9 +54,4 @@ public class productoMenu
 		return precioBase;
 	}
 	
-	/*public String generarTextoFactura()
-	{
-		
-	/*}
-	
 }
