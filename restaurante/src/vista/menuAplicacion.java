@@ -5,6 +5,7 @@ import controller.option;
 import controller.pedido;
 import controller.LoaderRestaurante;
 import controller.combo;
+import controller.ingrediente;
 
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
@@ -58,8 +59,10 @@ public class menuAplicacion {
 				}
 				else if (sel ==50)
 				{
+					menuIngredientes(menu, usuario);
 					String fact = usuario.givefac();
 					System.out.println(fact);
+					return false;
 				}
 				
 				else if (sel != 0 & sel != 101)
@@ -118,8 +121,10 @@ public class menuAplicacion {
 				
 				else if (sel ==50)
 				{
+					menuIngredientes(menu, usuario);
 					String fact = usuario.givefac();
 					System.out.println(fact);
+					return false;
 				}
 				
 				else if (sel != 0 & sel != 101)
@@ -144,8 +149,55 @@ public class menuAplicacion {
 		return false;
 	}
 	
+
+	public void menuIngredientes(menuDatos menu , pedido usuario)
+	{
+		ArrayList<ingrediente> ingre = menu.mostrarIngre();
+		for (int i=0; i < ingre.size();i++)
+		{
+			ingrediente value = ingre.get(i);
+			String name = value.getNombre();
+			name = name.substring(0,1).toUpperCase() + name.substring(1);
+			int dif = 30- name.length();
+			String space= new String(new char[dif]).replace("\0", "-");
+			System.out.println( "\n" + (i+1)+ " - "+ name + space );	
+		}
+		boolean cont = true;
+		while( cont ==true)
+		{
+			try 
+			{
+				System.out.println("\n ------------------------------------------------");
+				System.out.println("\n Elige que ingrediente agregar: ");
+				System.out.println("\n Elige 0 para omitir. ");
+
+				System.out.println("\n ------------------------------------------------");
+				int sel = Integer.parseInt(input(""));
 	
+				if (sel == 0) {
+					cont =  false;
+				}
+				
+				else if (sel != 0)
+				{
+					
+					ingrediente producto = ingre.get(sel-1);
+					String name = producto.getNombre();
+					int price = producto.getcostoAdicional();
+					option ingredient = new option(name, price);
+					usuario.agregarOption(ingredient);
+				}
+				
+			} 
+			catch (NumberFormatException e) 
+			{
+				
+			}
+		}
+		
+	}
 	
+
 	public void ejecutarAplicacion() throws FileNotFoundException, IOException
 	{
 		String name = input(" Ingrese su nombre \n");

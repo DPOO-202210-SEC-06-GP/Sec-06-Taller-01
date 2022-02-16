@@ -48,7 +48,7 @@ public class pedido {
 	private void  facturaT() 
 	{ 
 		String fin =  "------- " + nombreCliente + " -------";
-		fin +=  "------- " + diCliente + " -------";
+		fin +=  "\n------- " + diCliente + " -------";
 		for (int i =0 ; i< pedidos.size(); i++ )
 		{
 			option temp = pedidos.get(i);
