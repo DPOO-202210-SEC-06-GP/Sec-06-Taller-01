@@ -54,6 +54,11 @@ public class combo
 		this.productos.add(itemCombo);
 	}
 	
+	
+	public  ArrayList<option> getList()
+	{
+		return contenido;
+	}
 	/**
 	 * Consulta el nombre del combo
 	 * @return nombre
@@ -87,4 +92,23 @@ public class combo
 		int fin = (int)  (conteo * descuento)/100;
 		return fin;
 	}
+	
+	public String generarTextoFactura() {
+		String fin = "";
+		for (int i =0 ; i < contenido.size();i++)
+		{
+			option temp = contenido.get(i);
+			String name = temp.giveName();
+			int price = temp.givePrice();
+			String name2 = Integer.toString(price);
+			int dif = 30- name2.length()- name.length();
+		    String space= new String(new char[dif]).replace("\0", "-");
+		    fin += ( "\n" + (i+1) + " - "+ name + space + name2);
+			}
+
+		return fin;
+		
+	}
+	
 }
+
