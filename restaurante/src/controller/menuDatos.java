@@ -15,18 +15,22 @@ public class menuDatos {
 	 */
 	private Map<String, option> opciones;
 	private ArrayList<option> options;
+	private ArrayList<combo> combos;
+	private ArrayList<ingrediente> ingredientes;
 
 	/*
 	 Contructores
 	 */
 	
-	public menuDatos( Map<String, option> opciones, ArrayList<option> options)
+	public menuDatos( Map<String, option> opciones, ArrayList<option> options,ArrayList<combo> combos,ArrayList<ingrediente> ingredientes)
 	/*
 	 * Crea un nuevo menu.
 	 */
 	{
 		this.opciones = opciones;
 		this.options = options;
+		this.combos = combos;
+		this.ingredientes = ingredientes;
 
 	}
 	
@@ -48,5 +52,30 @@ public class menuDatos {
 	 */
 	{
 		return options;
+	}
+	
+	public ArrayList<combo> mostrarCombos() 
+	/*
+	 * Devuelve el ArrayList combos
+	 */
+	{
+		return combos;
+	}
+	
+	public ArrayList<ingrediente> mostrarIngre() 
+	/*
+	 * Devuelve el ArrayList combos
+	 */
+	{
+		return ingredientes;
+	}
+	
+	public option getByName(String name) {
+		/*
+		 * Dato un nombre, devuelve el objeto/producto cuyo nombre es el mismo.
+		 */
+		option item = opciones.get(name);
+		
+		return item;
 	}
 }
